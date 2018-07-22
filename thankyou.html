@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="http://s3.amazonaws.com/aframe.7b/vendors/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet"/>
+    <style type="text/css">
+      body {
+        background-color: red;
+        color: #ffffff;
+      }
+      .content {
+        background-color: #000000;
+        max-width: 900px;
+        margin: auto;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 120px;
+      }
+      .div {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+      p {
+        font-size: 120%;
+      }
+      #advp-logo {
+        padding-top: 15px;
+        text-align: center;
+        -webkit-transition: all 1s;
+        transition: all 1s;
+      }
+      #advp-logo img {
+        max-width: 200px;
+        width: 15%;
+      }
+      #company-name {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 220%;
+        color: #bfbfbf;
+      }
+      .yellow-bold {
+        font-weight: bold;
+        color: yellow;
+        font-size: 120%;
+      }
+      .red {
+        color: red;
+      }
+      .blue {
+        color: #4CC3D9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="content">
+        
+        <div id="advp-logo">
+          <img src="http://s3.amazonaws.com/aframe.7b/images/Advertisers-Logo-Stacked.png" alt="logo"/>
+        </div>
+        
+        <div id="company-name">ADVERTISERS</div>
+        
+        <div class="div">
+          <p><span class="yellow-bold">Thanks ##firstname##!</span><br/>
+          <br/>We'll send you an email with a link to join the webinar as the date gets nearer.
+          </p>
+        </div>
+        
+      </div>
+    </div>
+    
+    <script type="text/javascript" src="http://s3.amazonaws.com/aframe.7b/vendors/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="http://s3.amazonaws.com/aframe.7b/vendors/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      var animation = requestAnimationFrame || webkitRequestAnimationFrame;
+      var logo = document.getElementById('advp-logo');
+      
+      var rotateLogo = function() {
+        animation(function() {
+          logo.style.transform = 'perspective(500px) rotateY(360deg)';
+        });
+        
+        setTimeout(function() {
+          logo.style.transition = 'all 0s';
+        }, 1500);
+        
+        setTimeout(function() {
+          logo.style.transform = 'perspective(500px) rotateY(0deg)';
+        }, 2000);
+        
+        setTimeout(function() {
+          logo.style.transition = 'all 1s';
+        }, 2500);
+        
+        setTimeout(function() {
+          rotateLogo();
+        }, 8000);
+      };
+      
+      window.addEventListener('load', function() {
+        rotateLogo();
+        setContentHeight();
+      });
+      
+      window.addEventListener('resize', function() {
+        setContentHeight();
+      });
+      
+      function setContentHeight() {
+        if(document.querySelector('.content').clientHeight < innerHeight) {
+          document.querySelector('.content').style.height = innerHeight + 'px';
+        }
+      }
+    </script>
+  </body>
+</html>

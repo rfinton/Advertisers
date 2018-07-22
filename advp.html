@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Advertisers Printing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--[if IE]>
+      <style>
+        a-scene { display: none; }
+        body { background-color: #000000; }
+      </style>
+    <![endif]-->
+    <style>
+      @media all and (-ms-high-contrast:none) {
+        a-scene { display: none; }
+        body { background-color: #000000; }
+      }
+    </style>
+    <script src="vendors/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="blueIcoSphere-obj"
+          src="models/blueIcoSphere.obj">
+        </a-asset-item>
+        
+        <a-asset-item id="monkey-obj"
+          src="models/brownMonkey.obj">
+        </a-asset-item>
+        
+        <a-asset-item id="donut-obj"
+          src="models/greenDonut.obj">
+        </a-asset-item>
+        
+        <a-asset-item id="cone-obj"
+          src="models/orangeCone.obj">
+        </a-asset-item>
+        
+        <a-asset-item id="purpleCube-obj"
+          src="models/purpleCube.obj">
+        </a-asset-item>
+        
+        <a-asset-item id="redSphere-obj"
+          src="models/redSphere.obj">
+        </a-asset-item>
+        
+        <a-asset-item id="smootRedSphere-obj"
+          src="models/smootRedSphere.obj">
+        </a-asset-item>
+        
+        <a-asset-item id="yellowColumn-obj"
+          src="models/yellowColumn.obj">
+        </a-asset-item>
+        
+        <a-asset-item id="pyramid-obj"
+          src="models/pyramid.obj">
+        </a-asset-item>
+        <a-asset-item id="pyramid-mtl"
+          src="models/pyramid.mtl">
+        </a-asset-item>
+        
+        <a-asset-item id="mark-obj"
+          src="models/mark.obj">
+        </a-asset-item>
+        <a-asset-item id="mark-mtl"
+          src="models/mark.mtl">
+        </a-asset-item>
+        
+        <img id="arrow" src="images/arrow.png"/>
+      </a-assets>
+      
+      
+      <a-box id="plane" 
+        color="#a0a0a0"
+        width="30"
+        height="30"
+        depth="0"
+        position="0 0 0"
+        rotation="90 0 0">
+      </a-box>
+      
+      <a-icosahedron id="blueIcoSphere"
+        color="#00aeef"
+        radius="0.75"
+        detail="1"
+        material="flatShading:true"
+        position="2.69 2.82 -2.77">
+        <a-animation attribute="rotation"
+          dur="2000"
+          fill="forwards"
+          to="360 360 360"
+          begin="viewing">
+        </a-animation>
+      </a-icosahedron>
+      
+      <a-obj-model id="donut" src="#donut-obj"
+        position="6.74 4.2 5"
+        rotation="0 -30 0"
+        color="#5b57a6">
+        <a-animation attribute="rotation"
+          dur="1000"
+          fill="forwards"
+          to="360 30 0"
+          begin="viewing"
+          direction="alternate"
+          repeat="1">
+        </a-animation>
+      </a-obj-model>
+      
+      <a-obj-model id="cone" src="#cone-obj"
+        position="-9.76 -3.51 0.97"
+        rotation="0 0 0"
+        color="#ffff00">
+        <a-animation attribute="rotation"
+          dur="2000"
+          fill="forwards"
+          begin="viewing"
+          to="0 360 0">
+        </a-animation>
+      </a-obj-model>
+      
+      <a-obj-model id="cube" src="#purpleCube-obj"
+        position="-6.39 3.08 5"
+        rotation="0 0 0"
+        color="#5b57a6">
+        <a-animation attribute="rotation"
+          dur="2000"
+          fill="forwards"
+          begin="viewing"
+          to="0 0 360">
+        </a-animation>
+      </a-obj-model>
+      
+      <a-obj-model id="sphere" src="#smootRedSphere-obj"
+        position="3.22 5 8.03"
+        rotation="0 0 0"
+        color="#ed1c24">
+        <a-animation attribute="position"
+          dur="1000"
+          fill="forwards"
+          from="3.22 5 8.03"
+          to="3.22 0.3 8.03"
+          direction="alternate"
+          begin="viewing"
+          repeat="1">
+        </a-animation>
+      </a-obj-model>
+    
+      <a-cylinder id="cylinder" color="#ffff00" 
+        position="-6.48 2.5 -4.22"
+        height="5" 
+        radius="0.5">
+        <a-animation attribute="rotation"
+          dur="1000"
+          fill="forwards"
+          begin="viewing"
+          to="360 360 0">
+        </a-animation>
+      </a-cylinder>
+      
+      <a-obj-model id="pyramid" src="#pyramid-obj"
+        position="-9.16 0 1.47"
+        scale="2 2 2"
+        rotation="0 30 0"
+        color="#ed1c24">
+        <a-animation attribute="rotation"
+          dur="2000"
+          fill="forwards"
+          begin="viewing"
+          to="0 360 0">
+        </a-animation>
+      </a-obj-model>
+      
+      <a-obj-model id="mark" src="#mark-obj" mtl="#mark-mtl"
+        position="-7.45 4.73 -10.85"
+        rotation="0 0 0">
+        <a-animation attribute="rotation"
+          dur="20000"
+          easing="linear"
+          to="0 360 0"
+          repeat="indefinite">
+        </a-animation>
+      </a-obj-model>
+      
+      
+      <a-box id="obelisk1"
+        width="2"
+        height="4"
+        depth="0.5"
+        position="0 2 -4"
+        color="#231f20">
+          <a-entity id="welcome" 
+            position="0 -0.41 0.3" 
+            text="font:https://cdn.aframe.io/fonts/Exo2Bold.fnt; color:#ffffff; align:center; baseline:bottom; lineHeight:60; opacity:1; value:4-12-17 \n Save\nThe\nDate; width:6; height:4">
+          </a-entity>
+          <a-image src="#arrow" position="0 -1  0.5"></a-image>
+      </a-box>
+      
+      <a-box id="obelisk2"
+        width="2"
+        height="4"
+        depth="0.5"
+        position="4 2 0" 
+        rotation="0 -90 0" 
+        color="#231f20">
+          <a-entity id="whatisit" 
+            position="0 -0.15 0.3">
+          </a-entity>
+          <a-image src="#arrow" position="0 -1  0.5"></a-image>
+      </a-box>
+      
+      <a-box id="obelisk3"
+        width="2"
+        height="4"
+        depth="0.5"
+        position="0 2 4" 
+        rotation="0 180 0" 
+        color="#231f20">
+          <a-entity id="register" 
+            position="0 -0.63 0.3" 
+            text="font:https://cdn.aframe.io/fonts/Exo2Bold.fnt; color:#ffffff; align:center; baseline:bottom; lineHeight:60; opacity:1; value:Don’t miss\nthis\nopportunity.\nGo here to\nregister now.; width:6; height:4">
+          </a-entity>
+      </a-box>
+      
+      <a-entity id="yawControl" position="0 0 0" rotation="0 0 0">
+        <a-camera id="pitchControl" wasd-controls="enabled:false">
+          <a-entity cursor="fuse:true, fuseTimeout:50"
+            material="color:#4cc3d9; shader:flat"
+            position="0 0 -2"
+            geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03">
+          </a-entity>
+        </a-camera>
+      </a-entity>
+      
+      <a-entity light="type:ambient; intensity:0.2" position="0 0 0"></a-entity>
+      <a-entity light="type:point; intensity:1.06; decay:0" position="0 2.31 0"></a-entity>
+      
+      <a-sky color="#ffffff"></a-sky>
+    </a-scene>
+    
+    <script type="text/javascript" src="vendors/jquery-3.1.1.min.js"></script>
+    <script>
+      var d = "";
+      var anim = undefined;
+      var keyDownInterval = "";
+      
+      function timeSinceKeyDown() {
+        return Date.now() - keyDownInterval;
+      }
+      
+      function setRegistrationURL() {
+        var referringURL = document.referrer;
+        referringURL = referringURL.replace("director", "register");
+        
+        if(referringURL == document.referrer) {
+          return "http://winmorestudents.com/register.html";
+        } else {
+          return referringURL;
+        }
+      }
+      
+      function pan() {
+        if(anim != undefined) cancelAnimationFrame(anim);
+        
+        if(d == "") return;
+        
+        if(timeSinceKeyDown() > 100) return;
+        
+        if(d == 'left') {
+          yawControl.object3D.rotateY(0.01);
+        }
+        
+        if(d == 'right') {
+          yawControl.object3D.rotateY(-0.01);
+        }
+        
+        if(d == 'up') {
+          pitchControl.object3D.rotateX(0.01);
+        }
+        
+        if(d == 'down') {
+          pitchControl.object3D.rotateX(-0.01);
+        }
+        
+        anim = requestAnimationFrame(pan);
+      }
+
+      $(document).ready(function() {
+        pitchControl = document.getElementById('pitchControl');
+        yawControl = document.getElementById('yawControl');
+        registrationPage = setRegistrationURL();
+        
+        if(document.referrer.search(/students/i) != -1) {
+          obelisk_msg = 'Advertisers Printing will be presenting a webinar to introduce the future of Student Search.';
+        } else {
+          obelisk_msg = 'Advertisers Printing will be presenting a webinar to introduce the future of Donor Search.';
+        }
+        
+        document.querySelector('#whatisit').setAttribute('text', 'font:https://cdn.aframe.io/fonts/Exo2Bold.fnt; color:#ffffff; align:center; baseline:bottom; lineHeight:60; opacity:1; value:' + obelisk_msg + '; width:1.8; height:0; wrapCount:18');
+        
+        document.getElementById('obelisk3').addEventListener('mouseenter', function(el) {
+          counter = 6;
+          redirect = setInterval(function() {
+            if(counter == 0) {
+              clearInterval(redirect);
+              window.parent.location.assign(registrationPage);
+            }
+
+            el.target.children[0].setAttribute('text', 'value', 'Redirecting\nto Sign-Up\npage in\n' + (counter--));
+          }, 1000);
+        });
+
+        document.getElementById('obelisk3').addEventListener('mouseleave', function(el) {
+          clearInterval(redirect);
+          el.target.children[0].setAttribute('text', 'value', 'Don’t miss\nthis\nopportunity.\nGo here to\nregister now.');
+        });
+
+        document.getElementById('sphere').addEventListener('mouseenter', function(el) {
+          el.target.emit('viewing');
+        });
+
+        document.getElementById('blueIcoSphere').addEventListener('mouseenter', function(el) {
+          el.target.emit('viewing');
+        });
+
+        document.getElementById('donut').addEventListener('mouseenter', function(el) {
+          el.target.emit('viewing');
+        });
+
+        document.getElementById('cylinder').addEventListener('mouseenter', function(el) {
+          el.target.emit('viewing');
+        });
+
+        document.getElementById('cone').addEventListener('mouseenter', function(el) {
+          el.target.emit('viewing');
+        });
+
+        document.getElementById('pyramid').addEventListener('mouseenter', function(el) {
+          el.target.emit('viewing');
+        });
+
+        document.getElementById('cube').addEventListener('mouseenter', function(el) {
+          el.target.emit('viewing');
+        });
+
+        document.getElementById('mark').addEventListener('mouseenter', function(el) {
+          el.target.emit('viewing');
+        });
+
+        // Hopefully this corrects an iPhone bug
+        document.querySelector('a-scene').addEventListener('exit-vr', function(ev) {
+          if(window.orientation !== undefined) {
+            ev.preventDefault();
+            ev.target.enterVR();
+          }
+        });
+
+        document.onkeydown = function(event) {
+          keyDownInterval = Date.now();
+          
+          switch(event.keyCode) {
+            case 37: // left
+              d = 'left';
+              break;
+            case 38: // up
+              d = 'up';
+              break;
+            case 39: // right
+              d = 'right';
+              break;
+            case 40: // down
+              d = 'down';
+              break;
+          }
+          
+          pan();
+        };
+        
+        document.onkeyup = function() {
+          d = "";
+        }
+      });
+    </script>
+  </body>
+</html>
